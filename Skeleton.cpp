@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int x, y;
 int map[8][8]; 
@@ -9,12 +8,12 @@ int userval = 1;
 int User1, User2;
 
 
-void printM(); //ÀüÃ¼ Ãâ·Â °üÀå
-void initialize(); // °ÔÀÓÆÇ »ı¼º 
-void game();	// °ÔÀÓ Á¾·á Á¶°Ç °è»ê
-int userplay(); //À¯Àú°¡ ³õÀ» ¹ÙµÏÆÇ º¯°æ
-int turn();//ÅÏ º¯°æ
-int checkNchange(int x, int y, int userval, int user); //ÆÇ º¯È­ Ãâ·Â
+void printM(); //ì „ì²´ ì¶œë ¥ ê´€ì¥
+void initialize(); // ê²Œì„íŒ ìƒì„± 
+void game();	// ê²Œì„ ì¢…ë£Œ ì¡°ê±´ ê³„ì‚°
+int userplay(); //ìœ ì €ê°€ ë†“ì„ ë°”ë‘‘íŒ ë³€ê²½
+int turn();//í„´ ë³€ê²½
+int checkNchange(int x, int y, int userval, int user); //íŒ ë³€í™” ì¶œë ¥
 
 int main(){		
 	initialize();
@@ -34,11 +33,11 @@ void check(){
 	if(map[x][y]==2) User2++;	
 }
 
-void game(){ //Á¾·á °è»ê
+void game(){ //ì¢…ë£Œ ê³„ì‚°
 	
 }
 
-int checkNchange(int x, int y, int userval, int user)//µ¹ »ö º¯°æ
+int checkNchange(int x, int y, int userval, int user)//ëŒ ìƒ‰ ë³€ê²½
 {
 if(map[x-1][y] == userval){                               
 	if(map[x+1][y] == userval){                           
@@ -67,7 +66,7 @@ if(map[x-2][y] == user) map[x-1][y] = user;
 }
 
 
-void initialize(){ // °ÔÀÓÆÇ »ı¼ººÎ
+void initialize(){ // ê²Œì„íŒ ìƒì„±ë¶€
 	
 	for(int i=0; i<8; i++){
 		for(int j=0; j<8; j++){
@@ -80,9 +79,9 @@ void initialize(){ // °ÔÀÓÆÇ »ı¼ººÎ
 	total= 4;
 }
 
-void printM(){// ÀüÃ¼ Ãâ·Â °üÀå
+void printM(){// ì „ì²´ ì¶œë ¥ ê´€ì¥
 	int i;
-	for(i=0; i<35; i++) printf("#");  //°ÔÀÓ Å¸ÀÌÆ² Ãâ·ÂºÎ
+	for(i=0; i<35; i++) printf("#");  //ê²Œì„ íƒ€ì´í‹€ ì¶œë ¥ë¶€
 	printf("\n\t OTHELLO GAME\n");
 	for(i=0; i<35; i++) printf("#");
 	printf("\n\n");
@@ -94,7 +93,7 @@ void printM(){// ÀüÃ¼ Ãâ·Â °üÀå
 	for(i=0; i<8; i++){
 		printf("\t");
 		printf("%d ", i);
-		for(int j=0; j<8; j++){					//°ÔÀÓÆÇ Ãâ·ÂºÎ
+		for(int j=0; j<8; j++){					//ê²Œì„íŒ ì¶œë ¥ë¶€
 			if(map[i][j] == 0) printf(". ");		  // change '0' if you want
 			else if(map[i][j] == 1) printf("O ");   // change '1' if you want
 			else if(map[i][j] == 2) printf("X ");	// change '2' if you want
@@ -109,13 +108,13 @@ void printM(){// ÀüÃ¼ Ãâ·Â °üÀå
 	
 	
 int userplay(){
-	printf("ÁÂÇ¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä(x, y)\nÀÔ·Â:");
+	printf("ì¢Œí‘œë¥¼ ì…ë ¥í•˜ì„¸ìš”(x, y)\nì…ë ¥:");
 	scanf("%d %d", &x, &y);
 	
 	map[y][x] = user;
 }
 int turn(){
-	printf("\n\n\n\n\n\n**************ÅÏÀ» ÀüÈ¯ÇÕ´Ï´Ù**************\n\n\n\n\n\n"); // ¿©±â¼­ ÅÏ ÀüÈ¯ ºÎºĞ ÄÚµù
+	printf("\n\n\n\n\n\n**************í„´ì„ ì „í™˜í•©ë‹ˆë‹¤**************\n\n\n\n\n\n"); // ì—¬ê¸°ì„œ í„´ ì „í™˜ ë¶€ë¶„ ì½”ë”©
 	if (user == 1){
 		user = 2;
 		userval = 1;
